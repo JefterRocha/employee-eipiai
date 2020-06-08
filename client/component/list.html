@@ -1,0 +1,33 @@
+<div class="content" ng-init="getEmployees()">
+	<div class="filters">
+		<div class="filter" >
+				<span>Filter by: </span>
+				<input type="text" ng-model="serach" placeholder="name, phone number, age">
+		</div>
+		<div class="order">
+			Order by: <select id="orderBy" ng-model="order" ng-options="option for option in ordersList">
+			</select>
+		</div>
+	</div>
+	<ul id="employee-list">
+		<li id="employee-wrapper" ng-repeat="employee in employees | orderBy: order | filter: search">
+			<div class="employee">
+				<h3>{{ employee.name }}</h3>
+				<div class="action-attributes">
+					<a class="edit action-btn" href="/edit/{{employee._id}}">edit</a>
+					<div class="remove action-btn" ng-click="removeEmployee(employee)">remove</div>
+				</div>
+			</div>
+			<table id="employee-info">
+				<tr>
+					<th>phone number</th>
+					<th>age</th>
+				</tr>
+				<tr>
+					<td>{{ employee.phoneNumber }}</td>
+					<td>{{ employee.age }}</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+</div>

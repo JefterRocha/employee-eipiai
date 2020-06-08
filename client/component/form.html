@@ -1,0 +1,9 @@
+<div class="content" ng-init="loadEmployee()">
+    <div class="loader" ng-show="isLoading"></div>
+    <form ng-submit="handleSubmit()" ng-hide="isLoading" >
+        <input type="text" name="name" placeholder="name" ng-model="oneEmployee.name" ng-required="true" />
+        <input type="text" name="phoneNumber" placeholder="phone number" ng-model="oneEmployee.phoneNumber" ng-required="true" />
+        <input type="number" name="age" placeholder="age" ng-model="oneEmployee.age" ng-required="true" />
+        <button type="submit">Send</button>
+    </form>
+</div>
